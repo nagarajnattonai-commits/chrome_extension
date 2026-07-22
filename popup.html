@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Natton_Lead_Generator</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="brand-header">
+      <img class="brand-logo" src="icons/logo-full.png" alt="Natton_Lead_Generator" />
+      <p class="subtitle">Extract leads from business search results</p>
+    </header>
+
+    <section class="status-card" id="pageStatus">
+      <span class="status-dot" id="statusDot"></span>
+      <span id="pageStatusText">Checking page…</span>
+    </section>
+
+    <section class="stats">
+      <div class="stat">
+        <span class="stat-label">Total Leads</span>
+        <span class="stat-value" id="totalLeads">0</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">This Session</span>
+        <span class="stat-value" id="sessionLeads">0</span>
+      </div>
+    </section>
+
+    <section class="progress-section" id="progressSection" hidden>
+      <div class="progress-header">
+        <span id="progressLabel">Extracting…</span>
+        <span id="progressPercent">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <p class="progress-detail" id="progressDetail">Preparing…</p>
+    </section>
+
+    <section class="actions">
+      <button class="btn btn-primary" id="startBtn" disabled>
+        ▶ Start Extraction
+      </button>
+      <button class="btn btn-danger" id="stopBtn" disabled>
+        ■ Stop Extraction
+      </button>
+      <button class="btn btn-secondary" id="exportBtn" disabled>
+        ⬇ Export Excel
+      </button>
+      <button class="btn btn-accent" id="webhookBtn" disabled>
+        🔗 Send to Webhook
+      </button>
+      <button class="btn btn-outline" id="clearBtn">
+        🗑 Clear All Leads
+      </button>
+    </section>
+
+    <section class="settings">
+      <button class="settings-toggle" id="settingsToggle" aria-expanded="false">
+        ⚙ Settings
+        <span class="chevron">▾</span>
+      </button>
+      <div class="settings-panel" id="settingsPanel" hidden>
+        <label for="webhookUrl">n8n Webhook URL</label>
+        <input
+          type="url"
+          id="webhookUrl"
+          placeholder="https://your-n8n.app/webhook/..."
+          autocomplete="off"
+        />
+        <button class="btn btn-outline" id="saveSettingsBtn">Save Settings</button>
+      </div>
+    </section>
+
+    <div class="notification" id="notification" role="alert" hidden></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
